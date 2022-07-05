@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        
+    <table class="table">
+        {% for livro in livros %}
+        <tr>
+                <img height="200" width="150" src="{{ livro.imagem }}" href="/catalogos/detail"> 
+            
+        {% endfor %}
+        {% else %}
+        <p>Você precisa realizar o login</p>
+    {% endif %}
+    </table> 
+{% endblock %}

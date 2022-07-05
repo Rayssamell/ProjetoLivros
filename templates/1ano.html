@@ -1,0 +1,26 @@
+{% load static %}
+
+
+{% if user.is_authenticated %}
+{% block content %}
+
+        <table class="table">
+            {% for livro in livros %}
+            <tr>
+                <td>
+                        <img height="300" width="200" src="{{ livro.imagem.url }}">
+                    </a>
+                    <br/>
+                
+                    {% for nome in livro.disciplina.all %}
+                        {{ nome }}<br/>
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table> 
+{% endblock %}
+
+{% else %}
+<p>Você precisa realizar o login <a href="/accounts/login/"> Login</a></p>
+{% endif %}
